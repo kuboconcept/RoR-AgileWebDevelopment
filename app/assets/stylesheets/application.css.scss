@@ -33,6 +33,7 @@
 	border: 2px solid red;
 	padding: 1em;
 	margin-bottom: 2em;
+	margin-left: 0px;
 	background-color: #f0f0f0;
 	font: bold smaller sans-serif;
 }
@@ -54,6 +55,25 @@
 		background: #141;
 		position: absolute;
 		height: 100%;
+
+		form, div {
+			display: inline;
+		}
+
+		input {
+			font-size: small;
+		}
+
+		#cart {
+			font-size: smaller;
+			color: white;
+
+			table {
+				border-top: 1px dotted #595;
+				border-bottom: 1px dotted #595;
+				margin-bottom: 10px;
+			}
+		}
 
 		ul {
 			padding: 0;
