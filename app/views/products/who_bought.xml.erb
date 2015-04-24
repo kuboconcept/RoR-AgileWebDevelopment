@@ -1,0 +1,21 @@
+<who_bought>
+  <title><%= "Who bought #{@product.title}"%></title>
+  <published><%= "#{@latest_order.try(:updated_at)}" %></published>
+  <% @product.orders.each do |order| %>
+    <order>
+      <order_id><%= "#{order.id}" %></order_id>
+      <name><%= "#{order.name}" %></name>
+      <email><%= "#{order.email}" %></email>
+      <address><%= "#{order.address}" %></address>
+      <pay_type><%= "#{order.pay_type}" %></pay_type>
+      <total><%= "#{number_to_currency order.line_items.map(&:total_price).sum}" %></total>
+      <% order.line_items.each do |item| %>
+        <product>
+          <product_title><%= "#{item.product.title}" %></product_title>
+          <product_qty><%= "#{item.quantity}" %></product_qty>
+          <product_price><%= "#{item.price}" %></product_price>
+        </product>
+      <% end %>
+    </order>
+  <% end %>
+</who_bought>

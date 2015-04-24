@@ -1,0 +1,51 @@
+<div id="who_bought_title">
+  <h1><%= "Who bought #{@product.title}"%></h1>
+  <h3><%= "Published at #{@latest_order.try(:updated_at)}" %></h3>
+</div>
+<% @product.orders.each do |order| %>
+  <div class="who_bought_order_title">
+    <h2><%= "Order #{order.id}" %></h2>
+  </div>
+  <p>
+    <strong>Name:</strong>
+    <%= order.name %>
+  </p>
+  <p>
+    <strong>Email:</strong>
+    <%= order.email %>
+  </p>
+  <p>
+    <strong>Address:</strong>
+    <%= order.address %>
+  </p>
+  <p>
+    <strong>Pay Type:</strong>
+    <%= order.pay_type %>
+  </p>
+  <p>
+    <strong>Total:</strong>
+    <%= number_to_currency order.line_items.map(&:total_price).sum %>
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Title</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% number = 1 %>
+      <% order.line_items.each do |item| %>
+        <tr class="<%= cycle('list_line_odd', 'list_line_even')%>">
+          <td><%= number %></td>
+          <td><%= item.product.title %></td>
+          <td><%= item.quantity %></td>
+          <td><%= number_to_currency item.price %></td>
+          <% number += 1 %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
