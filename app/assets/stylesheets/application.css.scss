@@ -43,7 +43,7 @@
 	position: absolute;
 
 	#main {
-		margin-left: 20em;
+		margin-left: 22em;
 		padding: 1em;
 		background: white;
 	}
@@ -51,7 +51,7 @@
 	#side {
 		float: left;
 		padding: 1em 2em;
-		width: 16em;
+		width: 18em;
 		background: #141;
 		position: absolute;
 		height: 100%;
@@ -72,6 +72,7 @@
 				border-top: 1px dotted #595;
 				border-bottom: 1px dotted #595;
 				margin-bottom: 10px;
+				width: 100%;
 			}
 		}
 
