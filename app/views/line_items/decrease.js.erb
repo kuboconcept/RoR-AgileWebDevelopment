@@ -1,2 +1,9 @@
-$('#cart').html("<%= escape_javascript render(@cart) %>");
+<% if @cart.line_items.size == 0 %>
+  $('#cart').hide('blind', 1000, function() {
+    $(this).html("<%= escape_javascript render(@cart) %>");
+  });
+<% else %>
+  $('#cart').html("<%= escape_javascript render(@cart) %>");
+<% end %>
+
 $('#current_item').css({'background-color':'#88ff88'}).animate({'background-color':'#114411'}, 1000);
