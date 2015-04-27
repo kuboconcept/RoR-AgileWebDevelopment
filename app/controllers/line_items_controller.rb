@@ -101,7 +101,7 @@ class LineItemsController < ApplicationController
         format.json { render json: @line_items.errors, status: :unprocessable_entity }
       end
     end
-  end
+  end 
 
   private
     # Use callbacks to share common setup or constraints between actions.
