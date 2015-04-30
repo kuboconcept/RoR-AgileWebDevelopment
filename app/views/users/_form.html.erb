@@ -18,6 +18,12 @@
         <%= f.label :name, 'Name' %><br>
         <%= f.text_field :name, size: 40 %>
       </div>
+      <% if defined?(is_update_form) && is_update_form %>
+        <div class="field">
+          <%= f.label :old_password, 'Old Password' %><br>
+          <%= f.password_field :old_password, size: 40 %>
+        </div>
+      <% end %>
       <div class="field">
         <%= f.label :password, 'Password' %><br>
         <%= f.password_field :password, size: 40 %>

@@ -1,0 +1,88 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+id:
+  
+  layouts:
+    application:
+      title:     "Rak Buku Plagmatis"
+      home:      "Home"
+      questions: "Pertanyaan"
+      news:      "Berita"
+      contact:   "Kontak"
+
+  store:
+    index:
+      title_html: "Katalog Plagmatis Anda"
+      add_html:   "Tambahkan ke Keranjang"
+
+  carts:
+    cart:
+      title:    "Keranjang Anda"
+      empty:    "Kosongkan keranjang"
+      checkout: "Checkout"
+  
+  number:
+    currency:
+      format:
+        unit:      "Rp."
+        precision: 2
+        separator: ","
+        delimiter: "."
+        format:    "%u%n"
+  
+  orders:
+    new:
+      legend:          "Mohon Isi Biodata"
+    form:
+      name:            "Nama"
+      address_html:    "Alamat"
+      email:           "E-mail"
+      pay_type:        "Jenis Pembayaran"
+      pay_prompt_html: "Pilih jenis pembayaran"
+      submit:          "Kirim Pesanan"
+    payment_types:
+      check:           "Cek"
+      credit_card:     "Kartu Kredit"
+      purchase_order:  "Pemesanan Langsung"
+  
+  activerecord:
+    models:
+      order:       "pesanan"
+    attributes:
+      order:
+        address:   "Alamat"
+        name:      "Name"
+        email:     "Email"
+        pay_type:  "Jenis Pembayaran"
+    errors:
+      messages:
+        inclusion: "tidak terdapat dalam daftar"
+        blank:     "tidak boleh kosong"
+        
+  errors:
+    template:
+      body:    "Ada masalah pada bagian-bagian berikut:"
+      header:
+        one:   "1 error ditemukan saat menyimpan %{model}"
+        other: "%{count} error ditemukan saat menyimpan %{model}"
+   
+  thanks: "Terima kasih atas pesanan anda"

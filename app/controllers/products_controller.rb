@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @products = Product.all.each {|x| x[:price] = convert_price :price }
   end
 
   # GET /products/1
@@ -83,11 +83,20 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:title, :description, :image_url, :price)
+      params.require(:product).permit(:title, :description, :image_url, :price, :locale)
     end
 
     def invalid_product
       logger.error "Attemp to access invalid product #{params[:id]}"
       redirect_to store_url, notice: "Invalid product"
     end
+    
+    def convert_price(price)
+      case I18n.locale
+      when "en"
+        price
+      when "id"
+        price *= 10000
+      end
+    end      
 end

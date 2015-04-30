@@ -12,6 +12,9 @@
           <dd><%= truncate(strip_tags(product.description), length: 80)%></dd>
         </dl>
       </td>
+      <td>
+        <%= LANGUAGES.select {|x| x[1] == product.locale}.length == 0 ? "ALL" : LANGUAGES.select{|x| x[1] == product.locale}.first[0] %>
+      </td>
       <td class="list_action">
         <%= link_to 'Show', product %><br />
         <%= link_to 'Edit', edit_product_path(product) %><br />
